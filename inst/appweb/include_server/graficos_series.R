@@ -7,21 +7,21 @@ predicted <- reactive({
 })
 
 output$dygraphPlot <- renderDygraph({
-  dygraph(predicted(), main = "Predicción TODOS Fallecidos/Mes", group = "lung-deaths") %>%
+  dygraph(predicted(), main = "Predicci\u00F3n TODOS Fallecidos/Mes", group = "lung-deaths") %>%
     dySeries(c("lwr", "fit", "upr"), label = "Fallecidos") %>%
     dyRangeSelector() %>%
     dyOptions(drawGrid = input$showgrid, colors = RColorBrewer::brewer.pal(3, "Set1"))
 })
 
 output$dygraphPlotSyncHom <- renderDygraph({
-  dygraph(predicted(), main = "Predicción HOMBRES Fallecidos/Mes", group = "lung-deaths") %>%
+  dygraph(predicted(), main = "Predicci\u00F3n HOMBRES Fallecidos/Mes", group = "lung-deaths") %>%
     dySeries(c("lwr", "fit", "upr"), label = "Fallecidos") %>%
     dyRangeSelector() %>%
     dyOptions(drawGrid = input$showgrid, drawPoints = TRUE, pointSize = 5, pointShape = "triangle")
 })
 
 output$dygraphPlotSyncMuj <- renderDygraph({
-  dygraph(predicted(), main = "Predicción MUJERES Fallecidas/Mes", group = "lung-deaths") %>%
+  dygraph(predicted(), main = "Predicci\u00F3n MUJERES Fallecidas/Mes", group = "lung-deaths") %>%
     dySeries(c("lwr", "fit", "upr"), label = "Fallecidas") %>%
     dyRangeSelector() %>%
     dyOptions(drawGrid = input$showgrid,fillGraph = TRUE, fillAlpha = 0.4, stepPlot = FALSE)

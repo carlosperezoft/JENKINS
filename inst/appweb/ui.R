@@ -2,36 +2,56 @@
 # carlos.perez7@udea.edu.co
 # 21/07/2018 1:35:51 p. m.
 #
+# NOTA: las inclusiones son relativas a la ubicion del archivo. "ui.R"
 source('include_ui/utils_ui.R', local=TRUE)
 
 # Declaracion del encabezado para la aplicacion WEB:
 header <- dashboardHeader(
   # El titulo usado aqui es el presentado en el menu de la app web:
   title = tagList(shiny::icon("gear"), "SEMVIZ \u00AE"),
-  titleWidth = "200px", disable = FALSE
+  titleWidth = "250px", disable = FALSE, msgHelpMenu
 )
 
 # menu_general ------------------------------------------------------------
-sidebar <- dashboardSidebar(
+sidebar <- dashboardSidebar(width = "250px",
   tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
     tags$script(src = "custom.js")
   ),
-  sidebarMenu(id = "sidebar",
-      menuItem("Inicio", tabName = "homeTab", icon = icon("credit-card")),
-      menuItem("Coordenadas Paralelas", tabName = "coordParall", icon = shiny::icon("tasks")),
-      menuItem("Predicciones", tabName = "predicciones", icon = shiny::icon("stats", lib = "glyphicon"))
+  # NOTA: Un menuItem con "subItems" NO permite invocar su propio elmento "tabName", es decir;
+  #       solo los subItems activan la invocacion a un elemento "tabName".
+  ##
+  # NOTA: Para el decorado "badgeColor", los colores validos son: red, yellow, aqua, blue,
+  #       light-blue, green, navy, teal, olive, lime, orange, fuchsia, purple, maroon, black.
+  #
+  sidebarMenu(id = "sidebarMenu",
+      menuItem("Inicio", tabName = "homeTab", icon = icon("credit-card"),
+               badgeLabel = "HOME", badgeColor = "green", selected = TRUE ),
+      menuItem("Coordenadas Paralelas", tabName = "coordParall",
+               icon = shiny::icon("tasks"), badgeLabel = "UTIL", badgeColor = "red"),
+      menuItem("Predicciones", tabName = "predicciones", icon = shiny::icon("stats", lib = "glyphicon"),
+               badgeLabel = "NUEVO", badgeColor = "orange"),
+      menuItem("Secci\u00F3n Men\u00FAs", tabName = "seccionMenusTab",
+               icon = shiny::icon("desktop"),
+               badgeLabel = "MENUS", badgeColor = "aqua"),
+      menuItem("Secci\u00F3n FLUID Panel", tabName = "seccionFluidPageTab",
+               icon = shiny::icon("gears"),
+               badgeLabel = "MENUS", badgeColor = "fuchsia"),
+      # NOTA: El uso de "href", es excluyente con el uso de "tabName" y de "subitems". Se dbe usar uno de ellos.
+      menuItem("Ayuda localhost", icon = icon("question-circle"), badgeLabel = "HELP",
+               badgeColor = "purple", href = "/ayuda/rmarkdown_test.html", newtab = TRUE)
+
     ), # /FIN sidebarMenu
     br(),
     tags$footer(tags$div(tags$b("* Carlos A. P\u00E9rez Moncada."),
         a(href= "https://www.linkedin.com/in/carlos-alberto-perez-moncada-07b6b630/",
-        target="_blank",icon("linkedin-square", "fa-2x")),
+                 target="_blank",icon("linkedin-square", "fa-2x")),
         br(), "- GPLv3 Licence.", br(), "- Copyright \u00A9 2018 U. de A.", br(),
         "- Medell\u00EDn - Colombia.", br(),
         tags$button(id = 'closeApp', type = "button", class = "btn action-button",
           onclick = "setTimeout(function(){window.close();},500);",
           # close browser
-          "Salir..."
+          "SALIR..."
         )
     ) # FIN DIV
   ) # FIN FOOTER
@@ -63,7 +83,10 @@ body <- dashboardBody(
     # SE USA LA FUNCION source(..) con el acceso especifico al $value; para evitar que se
     # procese el contenido, pues causa que se genere el codigo HTML respectivo...
     # Se debe incluir el tabItem completo, sino el include .R genera errores de validacion:
-    source("include_ui/series_contenido_tab.R", local = TRUE)$value
+    source("include_ui/series_contenido_tab.R", local = TRUE)$value,
+    source("include_ui/seccion_menu_tab.R", local = TRUE)$value,
+    source("include_ui/seccion_fluidpage_tab.R", local = TRUE)$value,
+    tabItem(tabName = "ayudaTab", href = "/ayuda/rmarkdown_test.html", newtab = TRUE)
   ) # /tabItems
 ) # /dashboardBody
 

@@ -12,6 +12,7 @@ Description: Visualizacion de alto nivel (interaccion de usuario final)
 Depends:
     R (>= 3.4.0)
 Imports:
+    lavaan (>= 0.5),
     shiny (>= 1.0.5),
     shinydashboard (>= 0.6.1),
     shinycssloaders (>= 0.2.0),

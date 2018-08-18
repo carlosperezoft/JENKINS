@@ -1,0 +1,4 @@
+Name: Start semviz.mockup (browser)
+Description: Inicia semviz.mockup en el default browser
+Binding: launchApp
+Interactive: true
