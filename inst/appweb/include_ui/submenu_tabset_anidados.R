@@ -15,6 +15,8 @@ tabItem(tabName = "submenusTab",
       tabPanel("Component 5", h3("CP5"))
     )
   ),
+  # NOTA: el uso de navbarPage NO permite el uso interno de "tabsetPanel"
+  # dentro un "tabPanel" que forme parte de dicha barra de navegacion.
   navbarPage("My Application",
      tabPanel("Component 1", icon = icon("credit-card"), h3("CP1")),
      tabPanel("Component 2", icon = icon("credit-card"),
