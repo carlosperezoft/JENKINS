@@ -29,15 +29,23 @@ sidebar <- dashboardSidebar(width = "250px",
                badgeLabel = "HOME", badgeColor = "green", selected = TRUE ),
       menuItem("Coordenadas Paralelas", tabName = "coordParall",
                icon = shiny::icon("tasks"), badgeLabel = "UTIL", badgeColor = "red"),
-      menuItem("Predicciones", tabName = "predicciones", icon = shiny::icon("stats", lib = "glyphicon"),
+      menuItem("Predicciones", tabName = "predicciones",
+               icon = shiny::icon("stats", lib = "glyphicon"),
                badgeLabel = "NUEVO", badgeColor = "orange"),
       menuItem("Secci\u00F3n Men\u00FAs", tabName = "seccionMenusTab",
                icon = shiny::icon("desktop"),
                badgeLabel = "MENUS", badgeColor = "aqua"),
       menuItem("Secci\u00F3n FLUID Panel", tabName = "seccionFluidPageTab",
                icon = shiny::icon("gears"),
-               badgeLabel = "MENUS", badgeColor = "fuchsia"),
-      # NOTA: El uso de "href", es excluyente con el uso de "tabName" y de "subitems". Se dbe usar uno de ellos.
+               badgeLabel = "FLUID", badgeColor = "fuchsia"),
+      # NOTA: el uso de los atributos "BADGE" no aplican en un "menuItem" con submenus
+      menuItem(text = "Secci\u00F3n SUBMENUS", icon = icon("thumbs-up", lib = "glyphicon"),
+               # NOTA: Los atributos "badgeLabel" y "badgeColor" NO aplican en un menuSubItem !
+               menuSubItem(text = "Uso de Barra-Menu", tabName = "submenusTab",
+                           icon = icon("paint-brush"))
+      ),
+      # NOTA: El uso de "href", es excluyente con el uso de "tabName" y de "subitems". Se debe usar uno de ellos.
+      # El atributo "newtab" se utiliza para activar una nueva pestaña o popup al cargar el "href"
       menuItem("Ayuda localhost", icon = icon("question-circle"), badgeLabel = "HELP",
                badgeColor = "purple", href = "/ayuda/rmarkdown_test.html", newtab = TRUE)
 
@@ -86,6 +94,7 @@ body <- dashboardBody(
     source("include_ui/series_contenido_tab.R", local = TRUE)$value,
     source("include_ui/seccion_menu_tab.R", local = TRUE)$value,
     source("include_ui/seccion_fluidpage_tab.R", local = TRUE)$value,
+    source("include_ui/submenu_tabset_anidados.R", local = TRUE)$value,
     tabItem(tabName = "ayudaTab", href = "/ayuda/rmarkdown_test.html", newtab = TRUE)
   ) # /tabItems
 ) # /dashboardBody
