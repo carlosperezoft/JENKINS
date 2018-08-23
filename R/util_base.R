@@ -1,11 +1,6 @@
-# Hello, world!
 #
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
+# launchApp
+# Funcion de prueba para ejecutar la app web R-Shiny
 #
 # Some useful keyboard shortcuts for package authoring:
 #
@@ -21,5 +16,6 @@ launchApp <- function() {
   options(shiny.port = 9090)
   #
   # NOTA: De manera directa en la invocacion se pueden usar en el runApp(..)
-  shiny::runApp(appDir = 'inst/appweb', launch.browser = TRUE, host = "127.0.0.1", port = 9090)
+  shiny::runApp(appDir = system.file("appweb", package = "semviz.mockup"),
+                launch.browser = TRUE, host = "127.0.0.1", port = 9090)
 }

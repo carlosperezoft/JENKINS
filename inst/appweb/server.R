@@ -105,6 +105,10 @@ shinyServer(function(input, output, session) {
   source('include_server/seccion_fluidpage_server.R', local=TRUE)
   # FIN FLUID PAGE
 
+  # Elementos graficos en SEM con qgraph (redes en psicometria)
+  source('include_server/qgraph_sem_basic_server.R', local=TRUE)
+  # FIN QGRAPH
+
   # USO DE MENSAJE MODAL (popup a usuario)
   observeEvent(input$msgModalBtn, {
     showModal(modalDialog(

@@ -39,9 +39,9 @@ sidebar <- dashboardSidebar(width = "250px",
                icon = shiny::icon("gears"),
                badgeLabel = "FLUID", badgeColor = "fuchsia"),
       # NOTA: el uso de los atributos "BADGE" no aplican en un "menuItem" con submenus
-      menuItem(text = "Secci\u00F3n SUBMENUS", icon = icon("thumbs-up", lib = "glyphicon"),
+      menuItem(text = "Secci\u00F3n QGRAPH", icon = icon("thumbs-up", lib = "glyphicon"),
                # NOTA: Los atributos "badgeLabel" y "badgeColor" NO aplican en un menuSubItem !
-               menuSubItem(text = "Uso de Barra-Menu", tabName = "submenusTab",
+               menuSubItem(text = "REDES-PSICO", tabName = "submenusTab",
                            icon = icon("paint-brush"))
       ),
       # NOTA: El uso de "href", es excluyente con el uso de "tabName" y de "subitems". Se debe usar uno de ellos.
