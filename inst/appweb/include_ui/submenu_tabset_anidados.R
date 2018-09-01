@@ -1,4 +1,4 @@
-tabItem(tabName = "submenusTab",
+tabItem(tabName = "redesPsicoSubMTab",
   h2("SUBMENU: Uso de Redes en Psicometria, paquete R: qgraph"), br(),
   fluidPage(
 
@@ -33,25 +33,5 @@ tabItem(tabName = "submenusTab",
                plotOutput("personGraDirPlot",width = "100%", height = "500px") %>% withSpinner())
 
     )
-  ),
-  # NOTA: el uso de navbarPage NO permite el uso interno de "tabsetPanel"
-  # dentro un "tabPanel" que forme parte de dicha barra de navegacion.
-  navbarPage("My Application",
-     tabPanel("Component 1", icon = icon("credit-card"), h3("CP1")),
-     tabPanel("Component 2", icon = icon("credit-card"),
-        h3("CP2"),
-        sidebarLayout(
-          sidebarPanel(
-            h3("CP2 sidebar")
-          ),
-          mainPanel(
-            h3("CP2 mainpanel")
-          )
-        )
-     ),
-     navbarMenu("More",
-        tabPanel("Sub-Component A", icon = icon("credit-card"), h3("CPA")),
-        tabPanel("Sub-Component B", icon = icon("credit-card"), h3("CPB"))
-     )
   )
 )

@@ -39,7 +39,7 @@ shinyServer(function(input, output, session) {
 
   output$paralCoordsPlot <- renderParcoords({
     tryCatch({
-      pc <- parcoords(
+      pc <- parcoords(reorderable = TRUE,
         iris[,c(5,1:4)]  # order columns so species first
         , rownames=F
         , brushMode="1d"
@@ -107,6 +107,10 @@ shinyServer(function(input, output, session) {
 
   # Elementos graficos en SEM con qgraph (redes en psicometria)
   source('include_server/qgraph_sem_basic_server.R', local=TRUE)
+  # FIN QGRAPH
+
+  # Elementos graficos en PLTLY JS (GGPLOT2)
+  source('include_server/mosaico_plotly_server.R', local=TRUE)
   # FIN QGRAPH
 
   # USO DE MENSAJE MODAL (popup a usuario)

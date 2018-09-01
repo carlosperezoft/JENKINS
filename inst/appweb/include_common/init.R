@@ -16,4 +16,9 @@ library(dygraphs)
 library(streamgraph)
 library(qgraph)
 library(psych)
-
+library(plotly)
+# IMPORTANTE: CROSSTALK funciona con HTMLWIDGESTS que esten entregados con EL.
+# en particular plotly.js y ggplot2 NO lo tienen.
+library(crosstalk)
+##
+library(forecast)

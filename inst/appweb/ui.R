@@ -41,8 +41,8 @@ sidebar <- dashboardSidebar(width = "250px",
       # NOTA: el uso de los atributos "BADGE" no aplican en un "menuItem" con submenus
       menuItem(text = "Secci\u00F3n QGRAPH", icon = icon("thumbs-up", lib = "glyphicon"),
                # NOTA: Los atributos "badgeLabel" y "badgeColor" NO aplican en un menuSubItem !
-               menuSubItem(text = "REDES-PSICO", tabName = "submenusTab",
-                           icon = icon("paint-brush"))
+               menuSubItem(text = "REDES-PSICO", tabName = "redesPsicoSubMTab", icon = icon("gear")),
+               menuSubItem(text = "Mosaico-PLOTLY", tabName = "mosaicoPlotSubMTab", icon = icon("paint-brush"))
       ),
       # NOTA: El uso de "href", es excluyente con el uso de "tabName" y de "subitems". Se debe usar uno de ellos.
       # El atributo "newtab" se utiliza para activar una nueva pestaña o popup al cargar el "href"
@@ -95,6 +95,7 @@ body <- dashboardBody(
     source("include_ui/seccion_menu_tab.R", local = TRUE)$value,
     source("include_ui/seccion_fluidpage_tab.R", local = TRUE)$value,
     source("include_ui/submenu_tabset_anidados.R", local = TRUE)$value,
+    source("include_ui/submenu_mosaico_plotly.R", local = TRUE)$value,
     tabItem(tabName = "ayudaTab", href = "/ayuda/rmarkdown_test.html", newtab = TRUE)
   ) # /tabItems
 ) # /dashboardBody
