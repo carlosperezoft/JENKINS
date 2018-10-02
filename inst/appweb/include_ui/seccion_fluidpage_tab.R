@@ -8,7 +8,7 @@ tabItem(tabName = "seccionFluidPageTab",
     # Uso tipo funcion para el "helper", al recibir explicitamente el "objeto grafico":
     wellPanel(
       helper(actionButton("msgModalBtn", "[Clic] Mensaje Modal!"),
-           type = "markdown", icon = "question",                                                                 colour = "green", content = "plot_help")
+           type = "markdown", icon = "question", colour = "green", content = "plot_help")
     ),
     hr(),
     # Sidebar layout with input and output definitions ----

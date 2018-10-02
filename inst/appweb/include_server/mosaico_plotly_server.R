@@ -96,7 +96,7 @@ output$subplotArrayDT <- renderDT({
 })
 
 #
-output$predictSTATPlot <- renderPlotly({
+output$predictSTATPlot  <- renderPlotly({
   txhousing %>%
     group_by(city) %>%
     plot_ly(x = ~date, y = ~median) %>%
