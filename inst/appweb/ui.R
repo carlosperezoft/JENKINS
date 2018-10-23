@@ -86,7 +86,7 @@ body <- dashboardBody(
         ),
         parcoordsOutput("paralCoordsPlot", width = "100%", height = "500px" ) %>% withSpinner()
       ), br(),
-      streamgraphOutput("streamgraphPlot", width = "1000px", height = "500px" ) %>% withSpinner()
+      streamgraphOutput("streamgraphPlot", width = "100%", height = "500px" ) %>% withSpinner(type = 5)
     ),
     # SE USA LA FUNCION source(..) con el acceso especifico al $value; para evitar que se
     # procese el contenido, pues causa que se genere el codigo HTML respectivo...
